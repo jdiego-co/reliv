@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Birthday</th>
+                <th>Cedula</th>
+                <th>Phone</th>
+                <th>Cell phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>City</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.Patients != null){
+                @foreach (var patient in Model.Patients)
+                {
+                    <tr>
+                        <td>@patient.FirstName</td>
+                        <td>@patient.LastName</td>
+                        <td>@patient.Birthday?.ToString("d")</td>
+                        <td>@patient.CedulaIdentidad</td>
+                        <td>@patient.PatientPhone</td>
+                        <td>@patient.PatientCellPhone</td>
+                        <td>@patient.PatientEmail</td>
+                        <td>@patient.Address</td>
+                        <td>@patient.City</td>
+                        <td><button class="btn btn-primary btn-sm">Remove</button></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
